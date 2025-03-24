@@ -1,0 +1,104 @@
+.background {
+    background-image: url('@/assets/fluff.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .game-title {
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    text-align: center;
+    color: #1e6091;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+    width: 90vw;
+    height: 90vw;
+    max-width: 400px;
+    max-height: 400px;
+    margin: 0 auto;
+  }
+  
+  /* Style du bouton */
+  .reset-btn {
+    margin-top: 10px;
+    font-size: 1.2rem;
+  color: #ffffff;
+  background-color: #3b7eb8;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .reset-btn:hover {
+    background-color: #1e6091;
+  }
+  
+
+  /* === CARTES === */
+.card {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    perspective: 1000px;
+  }
+  
+  .card-inner {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.4s ease;
+    transform-style: preserve-3d;
+  }
+  
+  .card.flipped .card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  /* Face cachée */
+  .card-front,
+  .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Face avant */
+  .card-front {
+    background-color: rgb(248, 199, 75);
+    color: #fff;
+    font-size: 2rem;
+  }
+  
+  /* Face arrière avec l'image */
+  .card-back {
+    background-size: cover;
+    background-position: center;
+    transform: rotateY(180deg);
+  }
+  
+  /* Quand une carte est appariée */
+  .card.flipped.matched {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+  
